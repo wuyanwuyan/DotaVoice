@@ -2,7 +2,7 @@
 <import src="../../../common/foot.wxml" />
 
 <view class="container">
-  <template is="head" data="{{title: 'audio'}}"/>
+  <template is="head" data="{{title: 'audio'}}" />
 
   <view class="page-body">
     <view class="page-section page-section-gap" style="text-align: center;">

@@ -2,12 +2,11 @@
 <import src="../../../common/foot.wxml" />
 
 <view class="container">
-  <template is="head" data="{{title: 'swiper'}}"/>
+  <template is="head" data="{{title: 'swiper'}}" />
 
   <view class="page-body">
     <view class="page-section page-section-spacing swiper">
-      <swiper indicator-dots="{{indicatorDots}}"
-        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
             <view class="swiper-item {{item}}"></view>
@@ -37,12 +36,12 @@
         <text>幻灯片切换时长(ms)</text>
         <text class="info">{{duration}}</text>
       </view>
-      <slider bindchange="durationChange" value="{{duration}}" min="500" max="2000"/>
+      <slider bindchange="durationChange" value="{{duration}}" min="500" max="2000" />
       <view class="page-section-title">
         <text>自动播放间隔时长(ms)</text>
         <text class="info">{{interval}}</text>
       </view>
-      <slider bindchange="intervalChange" value="{{interval}}" min="2000" max="10000"/>
+      <slider bindchange="intervalChange" value="{{interval}}" min="2000" max="10000" />
     </view>
   </view>
 

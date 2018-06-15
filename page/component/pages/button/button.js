@@ -8,6 +8,16 @@ var pageObject = {
     plain: false,
     loading: false
   },
+  testTab:function(){
+    // wx.getUserInfo({
+    //   success:function(){
+    //     console.log(arguments);
+    //   }
+    // });
+
+    wx.hideShareMenu()
+  },
+
   setDisabled: function(e) {
     this.setData({
       disabled: !this.data.disabled
