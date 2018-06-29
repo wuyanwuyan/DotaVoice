@@ -1,10 +1,63 @@
-/**app.wxss**/
-.container {
-  height: 100%;
+.flex {
+  display: flex;
+}
+
+.flex_center_v {
+  display: flex;
+  align-items: center;
+}
+
+.flex_center_h {
+  display: flex;
+  justify-content: center;
+}
+
+.flex_center_vh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.margin_left_auto {
+  margin-left: auto;
+}
+
+.border-bottom-line {
+  border-bottom: 1rpx gray solid;
+}
+
+.flex-space-between {
+  display: flex;
   justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+}
+
+.overflowAuto {
+  overflow: auto;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.relative{
+  position: relative
+}
+
+.absolute-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

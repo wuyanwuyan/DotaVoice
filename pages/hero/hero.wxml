@@ -1,0 +1,10 @@
+<!--pages/hero/hero.wxml-->
+<view>
+
+<view wx:for="{{loadData}}" wx:key="{{index}}">
+  <view bind:tap='onTab' data-item="{{subItem}}" wx:if="{{item.voices}}" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
+  <text>{{subItem.mp3Text}}</text>
+  </view>
+</view>
+
+</view>
