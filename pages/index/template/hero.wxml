@@ -1,0 +1,6 @@
+<template name="hero">
+  <view class='relative hero' bindtap='onTab' data-hero="{{heroName}}">
+    <image class='avatar' src="{{avaterMain}}"></image>
+    <text class='hero-name flex_center_vh'>{{heroName}}</text>
+  </view>
+</template>

@@ -1,6 +1,22 @@
-.container {
+page{
+  background: #363940;
 }
 
+.container {
+  
+}
+
+.section-title{
+  display: inline-block;
+  font-weight: 500;
+  font-size: 38rpx;
+  border-bottom: 2rpx red solid;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  color:red;
+  width: 223rpx;
+  padding-bottom: 8rpx;
+}
 
 .item{
   padding: 20rpx 30rpx;
@@ -10,3 +26,6 @@
   width: 40rpx;
   height: 40rpx;
 }
+
+
+@import "./template/hero.wxss"

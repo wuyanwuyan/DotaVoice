@@ -1,13 +1,39 @@
 //index.js
 const app = getApp();
-const heros = require('../../heros/index.js');
 
 Page({
   data: {
-    heros
+    strengthHeros: [],
+    agilityHeros: [],
+    intelligenceHeros : [],
   },
 
   onLoad: function () {
+    wx.request({
+      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/index.json`,
+      success: (res) => {
+        let strengthHeros = [], agilityHeros = [], intelligenceHeros=[];
+        res.data.forEach(v=>{
+          if (v.primaryAttribute === 'Strength'){
+            strengthHeros.push(v);
+          } else if (v.primaryAttribute === 'Agility'){
+            agilityHeros.push(v);
+          } else if (v.primaryAttribute === 'Intelligence'){
+            intelligenceHeros.push(v);
+          }
+        })
+        this.setData({
+          strengthHeros,
+          agilityHeros,
+          intelligenceHeros
+        })
+        fail: () => {
+          wx.showToast({
+            title: '加载失败！',
+          })
+        }
+      }
+    })
   },
 
   onTab: function (e) {

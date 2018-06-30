@@ -1,10 +1,21 @@
 <!--pages/hero/hero.wxml-->
 <view>
 
-<view wx:for="{{loadData}}" wx:key="{{index}}">
-  <view bind:tap='onTab' data-item="{{subItem}}" wx:if="{{item.voices}}" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
-  <text>{{subItem.mp3Text}}</text>
+  <view wx:for="{{loadData}}" wx:key="{{index}}">
+
+    <view wx:if="{{item.headTitle}}" class='head-title'>
+      <text>{{item.headTitle}}</text>
+    </view>
+
+
+
+    <view wx:esif="{{item.voices}}" class='voice-item' hover-class="voice-item-hover" bind:tap='onTab' data-item="{{subItem}}" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
+
+        <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='samll-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem"></image>
+
+      <text>{{subItem.mp3Text}}</text>
+    </view>
+
   </view>
-</view>
 
 </view>

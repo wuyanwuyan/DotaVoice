@@ -27,6 +27,10 @@
   flex-direction: column;
 }
 
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
 .margin_left_auto {
   margin-left: auto;
 }

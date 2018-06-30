@@ -1,1 +1,26 @@
 /* pages/hero/hero.wxss */
+
+page {
+  background: #363940;
+  color: white;
+}
+
+.head-title{
+  background: red;
+}
+
+.voice-item{
+  padding: 8rpx 0 8rpx 8rpx;
+  border-bottom: 1rpx gray solid;
+}
+
+.voice-item-hover{
+  background: gray;
+}
+
+.samll-avater{
+  width: 40rpx;
+  height: 40rpx;
+
+
+}

@@ -1,8 +1,35 @@
 <!--index.wxml-->
-<view class="container">
-  <view wx:for="{{heros}}" wx:key="{{item.heroName}}" class='item flex_center_v border-bottom-line' bind:tap="onTab" data-hero="{{item.heroName}}">
-    <image class='avater-img' src="{{item.heroAvater}}" mode='aspectFit'></image>
-    <text>{{item.heroName}}</text>
 
+<import src="./template/hero.wxml" />
+
+
+<view class="container">
+  <view>
+    <text class='section-title'>力量</text>
+    <view>
+      <template is="hero" data="{{...item}}" wx:for="{{strengthHeros}}" wx:key="{{item.heroName}}" />
+    </view>
   </view>
+
+  <view>
+    <text class='section-title'>力量</text>
+    <view>
+      <template is="hero" data="{{...item}}" wx:for="{{strengthHeros}}" wx:key="{{item.heroName}}" />
+    </view>
+  </view>
+
+  <view>
+    <text class='section-title'>敏捷</text>
+    <view>
+      <template is="hero" data="{{...item}}" wx:for="{{agilityHeros}}" wx:key="{{item.heroName}}" />
+    </view>
+  </view>
+
+  <view>
+    <text class='section-title'>智力</text>
+    <view>
+      <template is="hero" data="{{...item}}" wx:for="{{intelligenceHeros}}" wx:key="{{item.heroName}}" />
+    </view>
+  </view>
+
 </view>
