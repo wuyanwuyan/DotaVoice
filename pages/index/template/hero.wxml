@@ -1,6 +1,8 @@
+<wxs src="../../../utils/wxmlUtils.wxs" module="utils"/>
+
 <template name="hero">
   <view class='relative hero' bindtap='onTab' data-hero="{{heroName}}">
-    <image class='avatar' src="{{avaterMain}}"></image>
+    <image lazy-load class='avatar' src="{{avaterMain}}"></image>
     <text class='hero-name flex_center_vh'>{{heroName}}</text>
   </view>
 </template>

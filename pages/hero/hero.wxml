@@ -6,7 +6,7 @@
 </view> -->
 
 <view class='bg-container'>
-<image class='bg-img' src='https://coding.net/u/dovahkiin/p/tempData/git/raw/master/avatar/abaddon.png' mode="aspectFill"></image>
+<image class='bg-img' src="{{heroInfo.longAvatar}}" mode="aspectFill"></image>
 </view>
 
   <view wx:for="{{loadData}}" wx:key="{{index}}">
@@ -18,7 +18,7 @@
 
     <view wx:if="{{item.voices}}" class="voice-item" hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{subItem}}" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
 
-      <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='samll-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem"></image>
+      <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='samll-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
 
       <text>{{subItem.mp3Text}}</text>
     </view>
@@ -32,9 +32,9 @@
       {{item.text}}
     </view>
 
-    <view class='skill-container flex_center_v' wx:if="{{item.type === 'skill'}}">
+    <view class='skill-container flex_center_v' wx:if="{{item.type === 'skill' || item.type === 'rune'}}">
       <image class='skill-img' src='{{item.imgUrl}}'></image>
-      <text class='skill-text'>{{item.skillName}}</text>
+      <text class="skill-text {{item.type === 'rune' ? 'rune-text' : ''}}">{{item.skillName}}</text>
     </view>
 
     <view class='subTitle-text' wx:if="{{item.type === 'subTitle'}}">

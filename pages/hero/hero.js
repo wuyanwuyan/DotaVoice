@@ -8,7 +8,8 @@ Page({
    */
   data: {
     hero: null,
-    loadData: []
+    loadData: [],
+    heroInfo:{}
   },
 
   /**
@@ -27,8 +28,10 @@ Page({
     wx.request({
       url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${encodeURIComponent(hero)}.json`,
       success: (res) => {
+        let heroInfo = res.data.shift();
         this.setData({
-          loadData: res.data
+          loadData: res.data,
+          heroInfo
         }) 
       },
       fail: () => {
