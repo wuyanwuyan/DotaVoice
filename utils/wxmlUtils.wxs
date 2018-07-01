@@ -1,0 +1,9 @@
+function getAvaterUrl(heroName){
+  var name = heroName.toLowerCase().replace(" ","").replace("_","");
+  console.log(name);
+  return "https://coding.net/u/dovahkiin/p/tempData/git/raw/master/avatar/" + name + ".png";
+}
+
+module.exports = {
+  getAvaterUrl: getAvaterUrl
+}
