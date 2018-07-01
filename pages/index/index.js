@@ -5,20 +5,23 @@ Page({
   data: {
     strengthHeros: [],
     agilityHeros: [],
-    intelligenceHeros : [],
+    intelligenceHeros: [],
   },
 
   onLoad: function () {
+    wx.showLoading({
+      title: 'loading...',
+    })
     wx.request({
       url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/index.json`,
       success: (res) => {
-        let strengthHeros = [], agilityHeros = [], intelligenceHeros=[];
-        res.data.forEach(v=>{
-          if (v.primaryAttribute === 'Strength'){
+        let strengthHeros = [], agilityHeros = [], intelligenceHeros = [];
+        res.data.forEach(v => {
+          if (v.primaryAttribute === 'Strength') {
             strengthHeros.push(v);
-          } else if (v.primaryAttribute === 'Agility'){
+          } else if (v.primaryAttribute === 'Agility') {
             agilityHeros.push(v);
-          } else if (v.primaryAttribute === 'Intelligence'){
+          } else if (v.primaryAttribute === 'Intelligence') {
             intelligenceHeros.push(v);
           }
         })
@@ -26,18 +29,21 @@ Page({
           strengthHeros,
           agilityHeros,
           intelligenceHeros
+        });
+      },
+      fail: () => {
+        wx.showToast({
+          title: '加载失败！',
         })
-        fail: () => {
-          wx.showToast({
-            title: '加载失败！',
-          })
-        }
+      },
+      complete: () => {
+        wx.hideLoading();
       }
     })
   },
 
   onTab: function (e) {
-    let {hero} = e.currentTarget.dataset;
+    let { hero } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `/pages/hero/hero?hero=${hero}`,
     })

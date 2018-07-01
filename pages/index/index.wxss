@@ -1,31 +1,28 @@
-page{
-  background: #363940;
+page {
+  background: #232f41;
 }
 
 .container {
-  
+  padding-bottom: 30rpx;
 }
 
-.section-title{
-  display: inline-block;
+.section-title {
+  display: block;
+  text-align: center;
   font-weight: 500;
-  font-size: 38rpx;
-  border-bottom: 2rpx red solid;
-  margin-bottom: 20rpx;
-  margin-left: 20rpx;
-  color:red;
-  width: 223rpx;
+  font-size: 36rpx;
+  color: #565d6f;
+  border-bottom: 4rpx #565d6f solid;
+  margin: 20rpx;
   padding-bottom: 8rpx;
 }
 
-.item{
+.item {
   padding: 20rpx 30rpx;
 }
 
-.avater-img{
+.avater-img {
   width: 40rpx;
   height: 40rpx;
 }
-
-
 @import "./template/hero.wxss"

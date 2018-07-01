@@ -1,6 +1,14 @@
 <!--pages/hero/hero.wxml-->
 <view>
 
+  <!-- <view>
+<image class='banner-img' src='https://d1u5p3l4wpay3k.cloudfront.net/dota2_gamepedia/f/fe/Chaos_Knight_icon.png?version=f4a06d79a4505476d842e6e409c0a70b'></image>
+</view> -->
+
+<view class='bg-container'>
+<image class='bg-img' src='https://coding.net/u/dovahkiin/p/tempData/git/raw/master/avatar/abaddon.png' mode="aspectFill"></image>
+</view>
+
   <view wx:for="{{loadData}}" wx:key="{{index}}">
 
     <view wx:if="{{item.headTitle}}" class='head-title'>
@@ -8,13 +16,31 @@
     </view>
 
 
+    <view wx:if="{{item.voices}}" class="voice-item" hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{subItem}}" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
 
-    <view wx:esif="{{item.voices}}" class='voice-item' hover-class="voice-item-hover" bind:tap='onTab' data-item="{{subItem}}" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
-
-        <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='samll-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem"></image>
+      <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='samll-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem"></image>
 
       <text>{{subItem.mp3Text}}</text>
     </view>
+
+
+    <view class='middle-text' wx:if="{{item.type === 'middle'}}">
+      {{item.text}}
+    </view>
+
+    <view class='small-text' wx:if="{{item.type === 'small'}}">
+      {{item.text}}
+    </view>
+
+    <view class='skill-container flex_center_v' wx:if="{{item.type === 'skill'}}">
+      <image class='skill-img' src='{{item.imgUrl}}'></image>
+      <text class='skill-text'>{{item.skillName}}</text>
+    </view>
+
+    <view class='subTitle-text' wx:if="{{item.type === 'subTitle'}}">
+      {{item.text}}
+    </view>
+
 
   </view>
 

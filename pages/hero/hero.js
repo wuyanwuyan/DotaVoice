@@ -7,27 +7,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hero: null,
     loadData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function ({ hero }) {
     wx.setNavigationBarTitle({
-      title: options.hero,
+      title: hero,
+    });
+    this.setData({
+      hero
+    });
+    wx.showLoading({
+      title: 'loading...',
     });
     wx.request({
-      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${encodeURIComponent(options.hero)}.json`,
+      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${encodeURIComponent(hero)}.json`,
       success: (res) => {
         this.setData({
           loadData: res.data
+        }) 
+      },
+      fail: () => {
+        wx.showToast({
+          title: '加载失败！',
         })
-        fail: () => {
-          wx.showToast({
-            title: '加载失败！',
-          })
-        }
+      },
+      complete: () => {
+        wx.hideLoading();
       }
     })
   },
@@ -57,7 +67,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    if (innerAudioContext){
+    if (innerAudioContext) {
       innerAudioContext.destroy();
       innerAudioContext = null;
     }
@@ -81,7 +91,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.hero,
+      url: `/pages/hero/hero?${this.data.hero}`
+    }
   },
 
   onTab: function (e) {
@@ -92,13 +105,33 @@ Page({
 
     innerAudioContext.src = item.mp3Url[0];
 
+    wx.showNavigationBarLoading();
+
     innerAudioContext.onEnded(() => {
-      
-    })
+      wx.hideNavigationBarLoading();
+    });
+
+    innerAudioContext.onPlay(() => {
+      wx.hideNavigationBarLoading();
+    });
 
     innerAudioContext.onError((res) => {
+      wx.hideNavigationBarLoading();
+    });
 
+  },
+
+  onLongPress: function (e) {
+    let { item } = e.currentTarget.dataset;
+
+    wx.setClipboardData({
+      data: item.mp3Text,
+      success: function (res) {
+        wx.showToast({
+          title: '已复制到剪切板！',
+          // icon: 'none'
+        })
+      }
     })
-
   }
 })

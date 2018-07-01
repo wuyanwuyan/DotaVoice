@@ -5,22 +5,75 @@ page {
   color: white;
 }
 
-.head-title{
-  background: red;
+.bg-container{
+  position: relative;
 }
 
-.voice-item{
+.bg-img{
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(5px);
+  opacity: 0.1;
+}
+
+.banner-img {
+  width: 100vw;
+  height: 56vw;
+}
+
+.head-title {
+  color: #8f93a1;
+  background: #091016;
+  padding: 10rpx 10rpx;
+  margin-top: -1rpx;
+  font-weight: bold;
+}
+
+.no-bottom-line {
+  border-bottom: 0;
+}
+
+.voice-item {
+  font-size: 38rpx;
   padding: 8rpx 0 8rpx 8rpx;
-  border-bottom: 1rpx gray solid;
+  border-bottom: 1rpx #627082 solid;
 }
 
-.voice-item-hover{
-  background: gray;
+.voice-item-hover {
+  background: #627082;
 }
 
-.samll-avater{
+.samll-avater {
   width: 40rpx;
   height: 40rpx;
+}
 
+.middle-text {
+  font-style: italic;
+  font-size: 26rpx;
+}
 
+.small-text {
+  font-style: italic;
+  font-size: 22rpx;
+}
+
+.skill-container {
+}
+
+.skill-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.skill-text {
+  margin-left: 20rpx;
+  font-size: 26rpx;
+}
+
+.subTitle-text {
+  font-size: 24rpx;
+  font-weight: 500;
 }
