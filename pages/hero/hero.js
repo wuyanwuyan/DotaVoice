@@ -1,15 +1,16 @@
 // pages/hero/hero.js
 let innerAudioContext = null;
 
+const LIMIT = 30;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    hero: null,
     loadData: [],
-    heroInfo:{}
+    renderData: [],
+    heroInfo: {}
   },
 
   /**
@@ -19,20 +20,20 @@ Page({
     wx.setNavigationBarTitle({
       title: hero,
     });
-    this.setData({
-      hero
-    });
     wx.showLoading({
       title: 'loading...',
     });
     wx.request({
       url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${encodeURIComponent(hero)}.json`,
       success: (res) => {
-        let heroInfo = res.data.shift();
+        let loadData = res.data;
+        let heroInfo = loadData.shift();
+        let nextLength = Math.min(LIMIT, loadData.length);
         this.setData({
-          loadData: res.data,
+          loadData,
+          renderData: res.data.slice(0, nextLength),
           heroInfo
-        }) 
+        });
       },
       fail: () => {
         wx.showToast({
@@ -70,6 +71,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    clearInterval(this.timeKey);
     if (innerAudioContext) {
       innerAudioContext.destroy();
       innerAudioContext = null;
@@ -87,16 +89,25 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    let { loadData, renderData } = this.data;
+    if (renderData.length >= loadData.length) {
+      return;
+    }
 
+    let nextLength = Math.min(this.data.renderData.length + LIMIT, loadData.length);
+    this.setData({
+      renderData: loadData.slice(0, nextLength),
+    });
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    let { heroInfo} = this.data;
     return {
-      title: this.data.hero,
-      url: `/pages/hero/hero?${this.data.hero}`
+      title: `${heroInfo.heroName}-${heroInfo.cnName} Dota2原声配音`,
+      url: `/pages/hero/hero?hero=${heroInfo.heroName}`
     }
   },
 

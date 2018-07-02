@@ -1,4 +1,5 @@
 /* pages/hero/hero.wxss */
+@import "../../component/loadmore.wxss";
 
 page {
   background: #363940;
@@ -18,9 +19,63 @@ page {
   opacity: 0.1;
 }
 
-.banner-img {
+.banner-view {
+  background: #0d0d0d;
   width: 100vw;
-  height: 56vw;
+  padding: 20rpx 0 10rpx 40rpx;
+}
+
+.banner-view-Strength {
+  background: linear-gradient(to right, rgba(236, 59, 6, 0.2) 0%, rgba(25, 26, 28, 0.82) 100%);
+}
+
+.banner-view-Agility {
+  background: linear-gradient(to right, rgba(38, 224, 48, 0.2) 0%, rgba(25, 26, 28, 0.82) 100%);
+}
+
+.banner-view-Intelligence {
+  background: linear-gradient(to right, rgba(0, 217, 236, 0.2) 0%, rgba(25, 26, 28, 0.82) 100%);
+}
+
+.banner-line {
+  height: 10rpx;
+}
+
+.banner-line-Strength {
+  background: linear-gradient(to right, rgba(25, 26, 28, 1) 0%, rgba(236, 59, 6, 0.4) 100%);
+}
+
+.banner-line-Agility {
+  background: linear-gradient(to right, rgba(25, 26, 28, 1) 0%, rgba(38, 224, 48, 0.4) 100%);
+}
+
+.banner-line-Intelligence {
+  background: linear-gradient(to right, rgba(25, 26, 28, 1) 0%, rgba(0, 217, 236, 0.4) 100%);
+}
+
+.banner-img {
+  width: 220rpx;
+  height: 124rpx;
+  box-sizing: content-box;
+  border: 4rpx black solid;
+  border-radius: 6rpx;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.4);
+}
+
+.name_view {
+  margin-left: 30rpx;
+}
+
+.en-name_txt {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+.cn-name_txt {
+  display: block;
+  font-size: 28rpx;
+  color: #f1f1f1;
 }
 
 .head-title {
@@ -41,8 +96,9 @@ page {
   background: #627082;
 }
 
-.samll-avater {
+.small-avater {
   width: 40rpx;
+  max-height: 40rpx;
   /* height: 40rpx; */
   margin-right: 8rpx;
   display: inline-block;
@@ -53,14 +109,14 @@ page {
   font-style: italic;
   font-size: 30rpx;
   padding: 6rpx 0 0 12rpx;
-  color:#8f93a1;
+  color: #8f93a1;
 }
 
 .small-text {
   font-style: italic;
   font-size: 28rpx;
   padding: 6rpx 0 0 12rpx;
-  color:#8f93a1;
+  color: #8f93a1;
 }
 
 .skill-container {
@@ -69,7 +125,7 @@ page {
 
 .skill-img {
   width: 50rpx;
-   height: 50rpx; 
+  height: 50rpx;
   /* height: auto; */
 }
 
@@ -80,7 +136,7 @@ page {
 }
 
 .rune-text {
-   font-style: italic;
+  font-style: italic;
 }
 
 .subTitle-text {
@@ -88,5 +144,5 @@ page {
   font-size: 30rpx;
   font-weight: 500;
   padding: 6rpx 0 0 12rpx;
-  color:#8f93a1;
+  color: #8f93a1;
 }

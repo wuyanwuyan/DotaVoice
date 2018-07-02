@@ -1,24 +1,31 @@
-<!--pages/hero/hero.wxml-->
 <view>
 
-  <!-- <view>
-<image class='banner-img' src='https://d1u5p3l4wpay3k.cloudfront.net/dota2_gamepedia/f/fe/Chaos_Knight_icon.png?version=f4a06d79a4505476d842e6e409c0a70b'></image>
-</view> -->
+  <view class='bg-container'>
+    <image class='bg-img' src="{{heroInfo.longAvatar}}" mode="aspectFill"></image>
+  </view>
 
-<view class='bg-container'>
-<image class='bg-img' src="{{heroInfo.longAvatar}}" mode="aspectFill"></image>
-</view>
+  <view class="banner-view banner-view-{{heroInfo.primaryAttribute}}">
+    <view class='flex_center_v'>
+      <view>
+        <image class='banner-img' src="{{heroInfo.avaterMain}}" mode='widthFix'></image>
+      </view>
+      <view class='name_view'>
+        <text class='en-name_txt'>{{heroInfo.heroName}}</text>
+        <text class='cn-name_txt'>{{heroInfo.cnName}}</text>
+      </view>
+    </view>
+    
+  </view>
+  <view class="banner-line banner-line-{{heroInfo.primaryAttribute}}"></view>
 
-  <view wx:for="{{loadData}}" wx:key="{{index}}">
-
+  <view wx:for="{{renderData}}" wx:key="{{index}}">
     <view wx:if="{{item.headTitle}}" class='head-title'>
       <text>{{item.headTitle}}</text>
     </view>
 
-
     <view wx:if="{{item.voices}}" class="voice-item" hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{subItem}}" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
 
-      <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='samll-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
+      <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='small-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
 
       <text>{{subItem.mp3Text}}</text>
     </view>
@@ -40,8 +47,11 @@
     <view class='subTitle-text' wx:if="{{item.type === 'subTitle'}}">
       {{item.text}}
     </view>
+  </view>
 
-
+  <include wx:if="{{loadData.length !== 0 && renderData.length < loadData.length}}" src="../../component/loadmore.wxml" />
+  <view class='weui-loadmore__tips flex_center_vh' wx:if="{{loadData.length !== 0 && renderData.length === loadData.length}}">
+    已到底...
   </view>
 
 </view>
