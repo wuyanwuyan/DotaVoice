@@ -33,13 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "hero",
 					"pathName": "pages/hero/hero",
-					"query": "hero=Abaddon"
+					"query": "hero=Shadow%20Fiend"
 				}
 			]
 		}

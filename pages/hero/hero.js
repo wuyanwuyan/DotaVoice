@@ -113,11 +113,20 @@ Page({
 
   onTab: function (e) {
     let { item } = e.currentTarget.dataset;
+    this.playSound(item.mp3Url[0]);
 
+  },
+
+  onTabArcana : function (e) {
+    let { item } = e.currentTarget.dataset;
+    this.playSound(item.mp3Url[1]);
+  },
+
+  playSound: function (url) {
     innerAudioContext = innerAudioContext || wx.createInnerAudioContext();
     innerAudioContext.autoplay = true;
 
-    innerAudioContext.src = item.mp3Url[0];
+    innerAudioContext.src = url;
 
     wx.showNavigationBarLoading();
 
@@ -132,7 +141,6 @@ Page({
     innerAudioContext.onError((res) => {
       wx.hideNavigationBarLoading();
     });
-
   },
 
   onLongPress: function (e) {
