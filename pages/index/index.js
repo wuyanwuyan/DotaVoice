@@ -45,7 +45,13 @@ Page({
   onTab: function (e) {
     let { hero } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/hero/hero?hero=${hero}`,
+      url: `/pages/hero/hero?hero=${encodeURIComponent(hero)}`,
     })
-  }
+  },
+  onShareAppMessage: function () {
+    return {
+      title: `DotaVoice--Dota2全英雄配音`,
+      url: `/pages/index/index`
+    }
+  },
 })

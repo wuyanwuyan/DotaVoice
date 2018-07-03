@@ -17,17 +17,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function ({ hero }) {
-    wx.setNavigationBarTitle({
-      title: hero,
-    });
     wx.showLoading({
       title: 'loading...',
     });
     wx.request({
-      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${encodeURIComponent(hero)}.json`,
+      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${hero}.json`,
       success: (res) => {
         let loadData = res.data;
         let heroInfo = loadData.shift();
+        wx.setNavigationBarTitle({
+          title: heroInfo.heroName
+        });
         let nextLength = Math.min(LIMIT, loadData.length);
         this.setData({
           loadData,
@@ -107,7 +107,7 @@ Page({
     let { heroInfo} = this.data;
     return {
       title: `${heroInfo.heroName}-${heroInfo.cnName} Dota2原声配音`,
-      url: `/pages/hero/hero?hero=${heroInfo.heroName}`
+      url: `/pages/hero/hero?hero=${encodeURIComponent(heroInfo.heroName)}`
     }
   },
 
