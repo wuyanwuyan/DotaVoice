@@ -1,58 +1,60 @@
 <template name="voices">
 
-  <view class="banner-view relative">
-    <image class='banner-img' src="{{heroInfo.bannerImg}}"></image>
-    <view class='name_view flex_center_v'>
-      <text class='en-name_txt'>{{heroInfo.heroName}}</text>
-      <text class='cn-name_txt'>{{heroInfo.cnName}}</text>
-    </view>
-  </view>
-
-  <view class="banner-line banner-line-{{heroInfo.primaryAttribute}}"></view>
-
-  <view wx:for="{{renderData}}" wx:key="{{index}}">
-    <view wx:if="{{item.headTitle}}" class='head-title'>
-      <text>{{item.headTitle}}</text>
+  <block wx:if="{{heroInfo && heroInfo.heroName}}">
+    <view class="banner-view relative">
+      <image class='banner-img' src="{{heroInfo.bannerImg}}"></image>
+      <view class='name_view flex_center_v'>
+        <text class='en-name_txt'>{{heroInfo.heroName}}</text>
+        <text class='cn-name_txt'>{{heroInfo.cnName}}</text>
+      </view>
     </view>
 
-    <view wx:if="{{item.voices}}" class="voice-item flex_center_v" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
+    <view class="banner-line banner-line-{{heroInfo.primaryAttribute}}"></view>
 
-      <view class='voice-item-left flex1' hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{subItem}}">
-        <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='small-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
-
-        <text>{{subItem.mp3Text}}</text>
+    <view wx:for="{{renderData}}" wx:key="{{index}}">
+      <view wx:if="{{item.headTitle}}" class='head-title'>
+        <text>{{item.headTitle}}</text>
       </view>
 
-      <view class='margin-left-auto arcana-sound flex_center_vh' wx:if="{{subItem.mp3Url.length > 1}}" catch:tap='onTabArcana' data-item="{{subItem}}">
-        <!-- <view class='play-outer flex_center_vh'>
-          <view class='play-inner'></view>
-        </view> -->
-        <image class='sound-img' src='../../assets/sound.png'></image>
+      <view wx:if="{{item.voices}}" class="voice-item flex_center_v" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
+
+        <view class='voice-item-left flex1' hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{subItem}}">
+          <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='small-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
+
+          <text>{{subItem.mp3Text}}</text>
+        </view>
+
+        <view class='margin-left-auto arcana-sound flex_center_vh' wx:if="{{subItem.mp3Url.length > 1}}" catch:tap='onTabArcana' data-item="{{subItem}}">
+          <image class='sound-img' src='../../assets/sound.png'></image>
+        </view>
+
       </view>
 
+
+      <view class='middle-text' wx:if="{{item.type === 'middle'}}">
+        {{item.text}}
+      </view>
+
+      <view class='small-text' wx:if="{{item.type === 'small'}}">
+        {{item.text}}
+      </view>
+
+      <view class='skill-container flex_center_v' wx:if="{{item.type === 'skill' || item.type === 'rune'}}">
+        <image class='skill-img' src='{{item.imgUrl}}' mode='aspectFit'></image>
+        <text class="skill-text text-truncate {{item.type === 'rune' ? 'rune-text' : ''}}">{{item.skillName}}</text>
+      </view>
+
+      <view class='subTitle-text' wx:if="{{item.type === 'subTitle'}}">
+        {{item.text}}
+      </view>
     </view>
+  </block>
 
 
-    <view class='middle-text' wx:if="{{item.type === 'middle'}}">
-      {{item.text}}
-    </view>
-
-    <view class='small-text' wx:if="{{item.type === 'small'}}">
-      {{item.text}}
-    </view>
-
-    <view class='skill-container flex_center_v' wx:if="{{item.type === 'skill' || item.type === 'rune'}}">
-      <image class='skill-img' src='{{item.imgUrl}}'></image>
-      <text class="skill-text text-truncate {{item.type === 'rune' ? 'rune-text' : ''}}">{{item.skillName}}</text>
-    </view>
-
-    <view class='subTitle-text' wx:if="{{item.type === 'subTitle'}}">
-      {{item.text}}
-    </view>
-  </view>
-
-  <include wx:if="{{loadData.length !== 0 && renderData.length < loadData.length}}" src="../../component/loadmore.wxml" />
-  <view class='weui-loadmore__tips flex_center_vh' wx:if="{{loadData.length !== 0 && renderData.length === loadData.length}}">
+  
+  
+  <include wx:if="{{!loadData || !loadData.length || renderData.length < loadData.length}}" src="../../../component/loadmore.wxml" />
+  <view class='weui-loadmore__tips flex_center_vh' wx:else>
     已到底...
   </view>
 

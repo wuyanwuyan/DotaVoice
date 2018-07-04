@@ -8,40 +8,61 @@ Page({
    * 页面的初始数据
    */
   data: {
+    current: 0,
+    tabNum: 1,
     loadData: [],
     renderData: [],
-    heroInfo: {}
+    heroInfos: [],
+    soundName: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function ({ hero }) {
-    wx.showLoading({
-      title: 'loading...',
-    });
+  onLoad: function(options) {
+    let {
+      hero
+    } = options;
+    this.loadHero(`https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${hero}.json`);
+  },
+
+  loadHero: function(url, index = 0) {
     wx.request({
-      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${hero}.json`,
+      url,
       success: (res) => {
-        let loadData = res.data;
-        let heroInfo = loadData.shift();
-        wx.setNavigationBarTitle({
+        let resData = res.data;
+        let heroInfo = resData.shift();
+        index === 0 && wx.setNavigationBarTitle({
           title: heroInfo.heroName
         });
-        let nextLength = Math.min(LIMIT, loadData.length);
+
+        let nextLength = Math.min(LIMIT, resData.length);
+        let {
+          loadData,
+          renderData,
+          heroInfos
+        } = this.data;
+
+        loadData[index] = resData;
+        renderData[index] = resData.slice(0, nextLength);
+        heroInfos[index] = heroInfo;
+        let tabNum = heroInfos[0] && heroInfos[0].arcana ? 2 : 1;
+
+        let soundName = (heroInfos[0] && heroInfos[0].soundName) || '';
+
         this.setData({
           loadData,
-          renderData: res.data.slice(0, nextLength),
-          heroInfo
+          renderData,
+          heroInfos,
+          tabNum,
+          soundName
         });
       },
       fail: () => {
         wx.showToast({
           title: '加载失败！',
+          icon: 'none'
         })
-      },
-      complete: () => {
-        wx.hideLoading();
       }
     })
   },
@@ -49,28 +70,28 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
     clearInterval(this.timeKey);
     if (innerAudioContext) {
       innerAudioContext.destroy();
@@ -78,77 +99,107 @@ Page({
     }
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  swichTab: function(e) {
+    let {
+      current
+    } = e.currentTarget.dataset;
+    this.setData({
+      current
+    })
+  },
 
+  bindchange: function(e) {
+    this.setData({
+      current: e.detail.current
+    })
+  },
+
+  bindanimationfinish: function(e) {
+    if (this.data.loadData[1] && this.data.loadData[1].length > 0) {
+      return;
+    }
+
+    let hero = encodeURIComponent(this.data.heroInfos[0].arcana);
+    this.loadHero(`https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${hero}.json`, 1);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    let { loadData, renderData } = this.data;
-    if (renderData.length >= loadData.length) {
+  bindscrolltolower: function(e) {
+    let {
+      index
+    } = e.currentTarget.dataset;
+    console.log(index);
+    let {
+      loadData,
+      renderData
+    } = this.data;
+    if (renderData[index].length >= loadData[index].length) {
       return;
     }
 
-    let nextLength = Math.min(this.data.renderData.length + LIMIT, loadData.length);
+    let nextLength = Math.min(this.data.renderData[index].length + LIMIT, loadData[index].length);
+    renderData[index] = loadData[index].slice(0, nextLength);
     this.setData({
-      renderData: loadData.slice(0, nextLength),
+      renderData,
     });
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    let { heroInfo} = this.data;
+  onShareAppMessage: function() {
+    let {
+      heroInfos
+    } = this.data;
     return {
-      title: `${heroInfo.heroName}-${heroInfo.cnName} Dota2原声配音`,
-      url: `/pages/hero/hero?hero=${encodeURIComponent(heroInfo.heroName)}`
+      title: `${heroInfos[0].heroName}-${heroInfos[0].cnName} Dota2原声配音`,
+      url: `/pages/hero/hero?hero=${encodeURIComponent(heroInfos[0].heroName)}`
     }
   },
 
-  onTab: function (e) {
-    let { item } = e.currentTarget.dataset;
+  onTab: function(e) {
+    let {
+      item
+    } = e.currentTarget.dataset;
     this.playSound(item.mp3Url[0]);
 
   },
 
-  onTabArcana : function (e) {
-    let { item } = e.currentTarget.dataset;
+  onTabArcana: function(e) {
+    let {
+      item
+    } = e.currentTarget.dataset;
     this.playSound(item.mp3Url[1]);
   },
 
-  playSound: function (url) {
-    innerAudioContext = innerAudioContext || wx.createInnerAudioContext();
-    innerAudioContext.autoplay = true;
+  playSound: function(url) {
+    if (!innerAudioContext) {
+      innerAudioContext = wx.createInnerAudioContext();
+      innerAudioContext.autoplay = true;
+
+      innerAudioContext.onPlay(() => {
+        wx.hideNavigationBarLoading();
+      });
+
+      innerAudioContext.onError((res) => {
+        wx.hideNavigationBarLoading();
+      });
+    }
 
     innerAudioContext.src = url;
-
     wx.showNavigationBarLoading();
-
-    innerAudioContext.onEnded(() => {
-      wx.hideNavigationBarLoading();
-    });
-
-    innerAudioContext.onPlay(() => {
-      wx.hideNavigationBarLoading();
-    });
-
-    innerAudioContext.onError((res) => {
-      wx.hideNavigationBarLoading();
-    });
   },
 
-  onLongPress: function (e) {
-    let { item } = e.currentTarget.dataset;
+  onLongPress: function(e) {
+    let {
+      item
+    } = e.currentTarget.dataset;
 
     wx.setClipboardData({
       data: item.mp3Text,
-      success: function (res) {
+      success: function(res) {
         wx.showToast({
           title: '已复制到剪切板！',
           // icon: 'none'

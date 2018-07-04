@@ -34,7 +34,7 @@ Page({
      * 滑动切换tab
      */
   bindchange: function (e) {
-    
+
     this.setData({ current: e.detail.current });
 
   },
@@ -51,36 +51,9 @@ Page({
     console.log('oncancel');
   },
 
-  onend: function(){
-    console.log('onend');
-// let nextIndex = 0;
-
-
-//     let delta = this.scrollLeft - this.data.winWidth * this.data.curIndex;
-
-
-//     console.log(this.scrollLeft , delta);
-
-//     if (Math.abs(delta) < this.data.winWidth *0.1){
-//       this.setData({
-//         // scrollLeft: this.data.winWidth * this.data.curIndex
-//           intoView: 'id' + this.data.curIndex
-//       })
-//       return ;
-//     }
-
-//     nextIndex = delta > 0 ? this.data.curIndex + 1 : this.data.curIndex -1;
-
-//     this.setData({
-//       // scrollLeft: this.data.winWidth * nextIndex,
-//       intoView: 'id' + nextIndex,
-//       curIndex: nextIndex
-//     })
-  },
-
-  onScroll: function (event){
-    this.scrollLeft = event.detail.scrollLeft;
-    console.log('this.scrollLeft  ', this.scrollLeft, "   ", event.detail.deltaX);
-    // event.detail = { scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY }
+  
+  bindscrolltolower	: function (e) {
+    console.log('end444 ' , e);
   }
+ 
 })

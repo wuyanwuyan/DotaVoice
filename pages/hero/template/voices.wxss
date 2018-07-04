@@ -107,7 +107,7 @@
 
 .skill-img {
   width: 50rpx;
-  height: 50rpx;
+  max-height: 50rpx;
   /* height: auto; */
 }
 

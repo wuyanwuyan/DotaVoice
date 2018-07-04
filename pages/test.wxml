@@ -6,7 +6,7 @@
 
 <swiper current="{{current}}" class='swiper' bindanimationfinish='bindchange'>
   <swiper-item>
-    <scroll-view scroll-y class='scroll-one' id="id0" style='background:red'>
+    <scroll-view scroll-y class='scroll-one' id="id0" style='background:red' bindscrolltolower="bindscrolltolower">
 
       <view style='font-size:80px'>我是哈哈</view>
       <view style='font-size:80px'>我是哈哈</view>
@@ -39,7 +39,7 @@
 
   <swiper-item>
 
-    <scroll-view scroll-y class='scroll-one' id="id1" style='background:blue'>
+    <scroll-view scroll-y class='scroll-one' id="id1" style='background:blue' bindscrolltolower="bindscrolltolower">
 
       <view style='font-size:80px'>我是哈哈</view>
       <view style='font-size:80px'>我是哈哈</view>
@@ -73,7 +73,7 @@
 
   <swiper-item>
 
-    <scroll-view scroll-y class='scroll-one' id="id2" style='background:yellow'>
+    <scroll-view scroll-y class='scroll-one' id="id2" style='background:yellow' bindscrolltolower="bindscrolltolower">
 
       <view style='font-size:80px'>我是哈哈</view>
       <view style='font-size:80px'>我是哈哈</view>

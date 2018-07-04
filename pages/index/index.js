@@ -13,7 +13,7 @@ Page({
       title: 'loading...',
     })
     wx.request({
-      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/index.json`,
+      url: `https://coding.net/u/dovahkiin/p/tempData/git/raw/master/save/index.json`,
       success: (res) => {
         let strengthHeros = [], agilityHeros = [], intelligenceHeros = [];
         res.data.forEach(v => {

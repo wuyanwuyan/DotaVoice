@@ -32,12 +32,6 @@
    height: calc(100vh - 80rpx);
 }
 
-
-.scroll-outer{
-  
-  white-space: nowrap;
-}
-
 .scroll-one{
   display: inline-block;
   width: 100vw;
