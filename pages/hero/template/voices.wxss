@@ -1,0 +1,161 @@
+
+.bg-container {
+  position: relative;
+}
+
+.bg-img {
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(5px);
+  opacity: 0.1;
+}
+
+.banner-view {
+  width: 100vw;
+  height: 37vw;
+}
+
+.banner-line {
+  height: 10rpx;
+}
+
+.banner-line-Strength {
+  background: linear-gradient(to right, rgba(25, 26, 28, 1) 0%, rgba(236, 59, 6, 0.4) 100%);
+}
+
+.banner-line-Agility {
+  background: linear-gradient(to right, rgba(25, 26, 28, 1) 0%, rgba(38, 224, 48, 0.4) 100%);
+}
+
+.banner-line-Intelligence {
+  background: linear-gradient(to right, rgba(25, 26, 28, 1) 0%, rgba(0, 217, 236, 0.4) 100%);
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+}
+
+.name_view {
+  position: absolute;
+  left: 10rpx;
+  bottom: 2rpx;
+}
+
+.en-name_txt {
+  /* font-size: 30rpx; */
+  font-weight: 500;
+  text-shadow: 2rpx 2rpx 16rpx rgba(0, 0, 0, 1);
+}
+
+.cn-name_txt {
+  margin-left: 16rpx;
+  font-size: 32rpx;
+  color: #f1f1f1;
+  text-shadow: 2rpx 2rpx 16rpx rgba(0, 0, 0, 1);
+}
+
+.head-title {
+  color: #8e92a0;
+  background: #091016;
+  padding: 10rpx 10rpx;
+  margin-top: -1rpx;
+  font-weight: bold;
+}
+
+.voice-item {
+  font-size: 38rpx;
+  border-bottom: 1rpx #627082 solid;
+}
+
+.voice-item-left {
+  padding: 8rpx 0 8rpx 16rpx;
+}
+
+.voice-item-hover {
+  background: #627082;
+}
+
+.small-avater {
+  width: 40rpx;
+  max-height: 40rpx;
+  /* height: 40rpx; */
+  margin-right: 8rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.middle-text {
+  font-style: italic;
+  font-size: 30rpx;
+  padding: 6rpx 0 0 12rpx;
+  color: #8f93a1;
+}
+
+.small-text {
+  font-style: italic;
+  font-size: 28rpx;
+  padding: 6rpx 0 0 12rpx;
+  color: #8f93a1;
+}
+
+.skill-container {
+  padding: 6rpx 0 0 12rpx;
+}
+
+.skill-img {
+  width: 50rpx;
+  height: 50rpx;
+  /* height: auto; */
+}
+
+.skill-text {
+  margin-left: 16rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.rune-text {
+  font-style: italic;
+}
+
+.subTitle-text {
+  font-style: italic;
+  font-size: 30rpx;
+  font-weight: 500;
+  padding: 6rpx 0 0 12rpx;
+  color: #8f93a1;
+}
+
+.arcana-sound {
+  width: 66rpx;
+  /* height: 100%; */
+  align-self: stretch;
+}
+
+/* .play-outer {
+  width: 46rpx;
+  height: 46rpx;
+  border-radius: 50%;
+   border: #ade55c 4rpx solid; 
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #ade55c;
+}
+
+.play-inner {
+  box-sizing: content-box;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 16rpx solid transparent;
+  border-left: 16rpx solid #ade55c;
+  transform: translateX(11rpx);
+} */
+
+.sound-img {
+  width: 50rpx;
+  height: 50rpx;
+}

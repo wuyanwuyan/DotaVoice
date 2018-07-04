@@ -40,6 +40,12 @@
 					"name": "hero",
 					"pathName": "pages/hero/hero",
 					"query": "hero=Shadow%20Fiend"
+				},
+				{
+					"id": -1,
+					"name": "hero",
+					"pathName": "pages/test",
+					"query": ""
 				}
 			]
 		}

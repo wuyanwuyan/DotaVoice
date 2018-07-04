@@ -1,0 +1,107 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{current==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">哈哈</view>
+  <view class="swiper-tab-list {{current==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">呵呵</view>
+  <view class="swiper-tab-list {{current==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">嘿嘿</view>
+</view>
+
+<swiper current="{{current}}" class='swiper' bindanimationfinish='bindchange'>
+  <swiper-item>
+    <scroll-view scroll-y class='scroll-one' id="id0" style='background:red'>
+
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+
+    </scroll-view>
+  </swiper-item>
+
+
+  <swiper-item>
+
+    <scroll-view scroll-y class='scroll-one' id="id1" style='background:blue'>
+
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+
+    </scroll-view>
+
+  </swiper-item>
+
+
+  <swiper-item>
+
+    <scroll-view scroll-y class='scroll-one' id="id2" style='background:yellow'>
+
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+      <view style='font-size:80px'>我是哈哈</view>
+
+    </scroll-view>
+
+  </swiper-item>
+
+</swiper>
