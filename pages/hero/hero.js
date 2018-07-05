@@ -1,7 +1,7 @@
 // pages/hero/hero.js
 let innerAudioContext = null;
 
-const LIMIT = 30;
+const LIMIT = 100;
 Page({
 
   /**

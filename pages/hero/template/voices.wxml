@@ -16,15 +16,15 @@
         <text>{{item.headTitle}}</text>
       </view>
 
-      <view wx:if="{{item.voices}}" class="voice-item flex_center_v" wx:for="{{item.voices}}" wx:key="{{subIndex}}" wx:for-index="subIndex" wx:for-item="subItem">
+      <view wx:if="{{item.type === 'voice'}}" class="voice-item flex_center_v">
 
-        <view class='voice-item-left flex1' hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{subItem}}">
-          <image wx:if="{{subItem.imgs && subItem.imgs.length !== 0}}" class='small-avater' src="{{imgItem.img}}" wx:for="{{subItem.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
+        <view class='voice-item-left flex1' hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{item}}">
+          <image wx:if="{{item.imgs && item.imgs.length !== 0}}" class='small-avater' src="{{imgItem.img}}" wx:for="{{item.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
 
-          <text>{{subItem.mp3Text}}</text>
+          <text>{{item.mp3Text}}</text>
         </view>
 
-        <view class='margin-left-auto arcana-sound flex_center_vh' wx:if="{{subItem.mp3Url.length > 1}}" catch:tap='onTabArcana' data-item="{{subItem}}">
+        <view class='margin-left-auto arcana-sound flex_center_vh' hover-class="voice-item-hover" wx:if="{{item.mp3Url.length > 1}}" catch:tap='onTabArcana' data-item="{{item}}">
           <image class='sound-img' src='../../assets/sound.png'></image>
         </view>
 
@@ -51,8 +51,8 @@
   </block>
 
 
-  
-  
+
+
   <include wx:if="{{!loadData || !loadData.length || renderData.length < loadData.length}}" src="../../../component/loadmore.wxml" />
   <view class='weui-loadmore__tips flex_center_vh' wx:else>
     已到底...
