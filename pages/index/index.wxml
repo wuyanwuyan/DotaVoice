@@ -25,4 +25,8 @@
     </view>
   </view>
 
+  <navigator class='flex' url="/pages/about/about">
+    <text class='margin_left_auto about-this-app'>关于>></text>
+  </navigator>
+
 </view>

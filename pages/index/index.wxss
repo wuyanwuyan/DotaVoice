@@ -25,4 +25,14 @@ page {
   width: 40rpx;
   height: 40rpx;
 }
+
+.about-this-app{
+  font-size: 30rpx;
+  color: #486474;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  font-weight: bold
+}
+
 @import "./template/hero.wxss"

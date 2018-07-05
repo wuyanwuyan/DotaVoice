@@ -8,16 +8,30 @@ page {
   color: white;
 }
 
+.bg-container {
+  position: relative;
+}
+
+.bg-img {
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(6px);
+  opacity: 0.1;
+}
+
 .swiper-tab {
   width: 100vw;
   text-align: center;
   overflow: hidden;
+  background: #0c0912;
 }
 
 .swiper-tab-list {
   font-size: 30rpx;
   display: inline-block;
-  color: #777;
+  color: #687d82;
   height: 80rpx;
   line-height: 80rpx;
   box-sizing: border-box;
@@ -25,7 +39,7 @@ page {
 
 .on {
   color: red;
-  font-weight: 500;
+  font-weight: bold;
   border-bottom: 6rpx solid red;
 }
 

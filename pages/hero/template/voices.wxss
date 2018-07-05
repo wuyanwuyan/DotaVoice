@@ -1,16 +1,5 @@
 
-.bg-container {
-  position: relative;
-}
 
-.bg-img {
-  position: fixed;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  filter: blur(5px);
-  opacity: 0.1;
-}
 
 .banner-view {
   width: 100vw;

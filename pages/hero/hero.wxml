@@ -1,12 +1,12 @@
 <import src="./template/voices.wxml" />
 <view class='bg-container'>
-  <image class='bg-img' src="{{heroInfo.longAvatar}}" mode="aspectFill"></image>
+  <image class='bg-img' src="{{heroInfos[0] && heroInfos[0].longAvatar}}" mode="aspectFill"></image>
 </view>
 
 <block wx:if="{{tabNum>1}}">
   <view class="swiper-tab">
     <view class="swiper-tab-list {{current==0 ? 'on' : ''}}" style="width:{{100/tabNum}}%" data-current="0" bindtap="swichTab">Voices</view>
-    <view class="swiper-tab-list {{current==1 ? 'on' : ''}}" style="width:{{100/tabNum}}%" data-current="1" bindtap="swichTab">{{ soundName || "Arcana Sound"}}</view>
+    <view class="swiper-tab-list {{current==1 ? 'on' : ''}}" style="width:{{100/tabNum}}%" data-current="1" bindtap="swichTab">{{ soundName || "Bladeform Legacy"}}</view>
   </view>
 
   <swiper current="{{current}}" class='swiper' bindchange='bindchange' bindanimationfinish='bindanimationfinish'>

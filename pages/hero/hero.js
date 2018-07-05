@@ -179,13 +179,11 @@ Page({
       innerAudioContext = wx.createInnerAudioContext();
       innerAudioContext.autoplay = true;
 
-      innerAudioContext.onPlay(() => {
-        wx.hideNavigationBarLoading();
-      });
+      innerAudioContext.onPlay(wx.hideNavigationBarLoading);
 
-      innerAudioContext.onError((res) => {
-        wx.hideNavigationBarLoading();
-      });
+      innerAudioContext.onEnded(wx.hideNavigationBarLoading)
+
+      innerAudioContext.onError(wx.hideNavigationBarLoading);
     }
 
     innerAudioContext.src = url;

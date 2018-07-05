@@ -39,12 +39,18 @@
 					"id": 0,
 					"name": "hero",
 					"pathName": "pages/hero/hero",
-					"query": "hero=Shadow%20Fiend"
+					"query": "hero=Juggernaut"
 				},
 				{
 					"id": 1,
 					"name": "tab",
 					"pathName": "pages/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "about-us",
+					"pathName": "pages/about/about",
 					"query": ""
 				}
 			]

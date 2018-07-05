@@ -1,0 +1,30 @@
+page {
+  background: #232f41;
+}
+
+.container {
+  padding: 30rpx 30rpx 0 30rpx;
+}
+
+.title {
+  color: #ccc;
+  font-size: 28rpx;
+}
+
+.content {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.zan-img {
+  width: 50vw;
+  border-radius: 8rpx;
+}
+
+.zan-text {
+  margin-top: 20rpx;
+  width: 100%;
+  font-size: 28rpx;
+  text-align: center;
+  color: white;
+}
