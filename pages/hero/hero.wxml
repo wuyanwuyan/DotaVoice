@@ -12,13 +12,13 @@
   <swiper current="{{current}}" class='swiper' bindchange='bindchange' bindanimationfinish='bindanimationfinish'>
     <swiper-item>
       <scroll-view scroll-y class='scroll-view' data-index='0' bindscrolltolower="bindscrolltolower">
-        <template is="voices" data="{{heroInfo:heroInfos[0],renderData:renderData[0],loadData:loadData[0]}}" />
+        <template is="voices" data="{{heroInfo:heroInfos[0],renderData:renderData[0],loadData:loadData[0],noVoices}}" />
       </scroll-view>
     </swiper-item>
 
     <swiper-item>
       <scroll-view scroll-y class='scroll-view' data-index='1' bindscrolltolower="bindscrolltolower">
-        <template is="voices" data="{{heroInfo:heroInfos[1],renderData:renderData[1],loadData:loadData[1]}}" />
+        <template is="voices" data="{{heroInfo:heroInfos[1],renderData:renderData[1],loadData:loadData[1],noVoices}}" />
       </scroll-view>
     </swiper-item>
 
@@ -26,5 +26,5 @@
 </block>
 
 <scroll-view wx:else scroll-y class='scroll-view' data-index='0' bindscrolltolower="bindscrolltolower">
-  <template is="voices" data="{{heroInfo:heroInfos[0],renderData:renderData[0],loadData:loadData[0]}}" />
+  <template is="voices" data="{{heroInfo:heroInfos[0],renderData:renderData[0],loadData:loadData[0],noVoices}}" />
 </scroll-view>

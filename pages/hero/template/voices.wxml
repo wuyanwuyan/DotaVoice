@@ -53,9 +53,14 @@
 
 
 
-  <include wx:if="{{!loadData || !loadData.length || renderData.length < loadData.length}}" src="../../../component/loadmore.wxml" />
-  <view class='weui-loadmore__tips flex_center_vh' wx:else>
-    已到底...
-  </view>
+  <block wx:if="{{noVoices}}">
+    <view class='flex_center_h no-voices'>无台词配音</view>
+  </block>
+  <block wx:else>
+    <include wx:if="{{!loadData || !loadData.length || renderData.length < loadData.length}}" src="../../../component/loadmore.wxml" />
+    <view class='weui-loadmore__tips flex_center_vh' wx:else>
+      已到底...
+    </view>
+  </block>
 
 </template>

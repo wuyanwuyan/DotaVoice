@@ -14,15 +14,14 @@ Page({
     renderData: [],
     heroInfos: [],
     soundName: null,
+    noVoices: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let {
-      hero
-    } = options;
+    let hero = options.hero;
     this.loadHero(`https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${hero}.json`);
   },
 
@@ -55,7 +54,8 @@ Page({
           renderData,
           heroInfos,
           tabNum,
-          soundName
+          soundName,
+          noVoices: resData.length === 0
         });
       },
       fail: () => {

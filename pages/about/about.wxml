@@ -1,7 +1,11 @@
 <view class='container'>
 
   <view class='title'>说明</view>
-  <view class='content'>· Dota2里小精灵IO和凤凰Phoenix没有配音。</view>
+  <view class='content flex_center_v'>
+    <text>· 部分英雄含有至宝配音，台词相同，点击</text>
+    <image class='sound-small-img' src='../../assets/sound.png'></image>
+    <text>可播放。</text>
+  </view>
   <view class='content'>· 本程序所有的资源均爬取自互联网。</view>
 
 
@@ -9,10 +13,12 @@
   <view class='title' style="margin-top:40rpx">联系作者与反馈意见</view>
   <view class='content'>微信号： fakedovah</view>
 
-  <!-- <view class='title' style="margin-top:40rpx">微信赞赏</view>
-  <view class="flex_center_h" style='margin-top:20rpx'>
-    <image class='zan-img' src='../../assets/zanshang.png' mode='widthFix'></image>
-  </view>
-  <view class='zan-text'>截屏后长按，识别二维码</view> -->
+  <block wx:if="{{enough}}">
+    <view class='title' style="margin-top:40rpx">微信赞赏</view>
+    <view class="flex_center_h" style='margin-top:20rpx'>
+      <image class='zan-img' src='../../assets/zanshang.jpg' mode='widthFix'></image>
+    </view>
+    <view class='zan-text'>截屏后长按，识别二维码</view>
+  </block>
 
 </view>
