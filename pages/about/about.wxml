@@ -1,5 +1,5 @@
 <view class='container'>
-
+<view class='h1'>DotaVoice</view>
   <view class='title'>说明</view>
   <view class='content flex_center_v'>
     <text>· 部分英雄含有至宝配音，台词相同，点击</text>
