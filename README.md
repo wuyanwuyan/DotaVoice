@@ -17,6 +17,6 @@ Dota2里包含了大量有趣的台词，每个英雄升级，激活神符，击
 
 ![king.jpg](https://upload-images.jianshu.io/upload_images/2058960-ab8a75d4e04f6654.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![kaer.jpg](https://upload-images.jianshu.io/upload_images/2058960-97b1f4ce1e0ecc89.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![kaer.jpg](https://upload-images.jianshu.io/upload_images/2058960-dbc0bb56361f0464.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![jugg.jpg](https://upload-images.jianshu.io/upload_images/2058960-3dd9147b9bc023b2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
