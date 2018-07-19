@@ -4,7 +4,7 @@
 Dota2里包含了大量有趣的台词，每个英雄升级，激活神符，击杀对手，获得装备都有特定的台词，而且英雄之间存在着互动，包含了一定的剧情。 
 
 
-### 扫一扫二维码体验
+### 扫一扫二维码体验小程序
 ![wechat_qrcode.jpg](https://upload-images.jianshu.io/upload_images/2058960-78a3c25d9071c0a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
