@@ -2,7 +2,7 @@
 
   <block wx:if="{{heroInfo && heroInfo.heroName}}">
     <view class="banner-view relative">
-      <image class='banner-img' src="{{heroInfo.bannerImg}}"></image>
+      <image class='banner-img' src="{{heroInfo.bannerImg}}" mode='aspectFill'></image>
       <view class='name_view flex_center_v'>
         <text class='en-name_txt'>{{heroInfo.heroName}}</text>
         <text class='cn-name_txt'>{{heroInfo.cnName}}</text>

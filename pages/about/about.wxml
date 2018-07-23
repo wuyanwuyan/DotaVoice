@@ -1,14 +1,16 @@
 <view class='container'>
-<view class='h1'>DotaVoice</view>
+  <view class='h1'>DotaVoice</view>
+  <view class='sacrifice-text' wx:if="{{!enough}}">
+    献给喜欢Dota的玩家
+  </view>
   <view class='title'>说明</view>
+  <view class='content'>· 长按台词，可复制文本到剪切板（便于查找翻译）。</view>
   <view class='content flex_center_v'>
     <text>· 部分英雄含有至宝配音，台词相同，点击</text>
     <image class='sound-small-img' src='../../assets/sound.png'></image>
     <text>可播放。</text>
   </view>
   <view class='content'>· 本程序所有的资源均爬取自互联网。</view>
-
-
 
   <view class='title' style="margin-top:40rpx">联系作者与反馈意见</view>
   <view class='content'>微信号： fakedovah</view>

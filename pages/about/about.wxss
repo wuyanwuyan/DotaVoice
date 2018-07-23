@@ -9,7 +9,14 @@ page {
 .h1 {
   color: #ccc;
   text-align: center;
-  margin-bottom: 30rpx; 
+  margin-bottom: 20rpx; 
+}
+
+.sacrifice-text{
+  color: #ccc;
+  text-align: center;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
 }
 
 .title {
@@ -20,12 +27,11 @@ page {
 .content {
   color: #999;
   font-size: 28rpx;
-  
 }
 
 .zan-img {
-  width: 50vw;
-  border-radius: 8rpx;
+  width: 40vw;
+  border-radius: 10rpx;
 }
 
 .zan-text {

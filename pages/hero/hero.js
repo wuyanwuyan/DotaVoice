@@ -199,7 +199,7 @@ Page({
       data: item.mp3Text,
       success: function(res) {
         wx.showToast({
-          title: '已复制到剪切板！',
+          title: '已复制到剪切板',
           // icon: 'none'
         })
       }
