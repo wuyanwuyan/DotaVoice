@@ -177,9 +177,11 @@ Page({
   playSound: function(url) {
     if (!innerAudioContext) {
       innerAudioContext = wx.createInnerAudioContext();
-      innerAudioContext.autoplay = true;
+      // innerAudioContext.autoplay = true;
 
-      innerAudioContext.onPlay(wx.hideNavigationBarLoading);
+      // innerAudioContext.onPlay(wx.hideNavigationBarLoading);
+
+      innerAudioContext.onCanplay(wx.hideNavigationBarLoading);
 
       innerAudioContext.onEnded(wx.hideNavigationBarLoading)
 
@@ -187,6 +189,8 @@ Page({
     }
 
     innerAudioContext.src = url;
+    innerAudioContext.seek(0);
+    innerAudioContext.play();
     wx.showNavigationBarLoading();
   },
 
