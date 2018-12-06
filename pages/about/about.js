@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function(options) {
     let openCount = wx.getStorageSync('openCount');
-    if (openCount >= 10) {
+    if (openCount >= 9999999) {
       this.setData({
         enough: true
       })

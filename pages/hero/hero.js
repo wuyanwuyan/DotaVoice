@@ -1,9 +1,9 @@
 // pages/hero/hero.js
 let innerAudioContext = null;
-
+let playCount = 0;
 const LIMIT = 100;
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -92,7 +92,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-    clearInterval(this.timeKey);
     if (innerAudioContext) {
       innerAudioContext.destroy();
       innerAudioContext = null;
@@ -181,17 +180,31 @@ Page({
 
       // innerAudioContext.onPlay(wx.hideNavigationBarLoading);
 
-      innerAudioContext.onCanplay(wx.hideNavigationBarLoading);
+      // innerAudioContext.onCanplay(wx.hideNavigationBarLoading);
 
-      innerAudioContext.onEnded(wx.hideNavigationBarLoading)
+      // innerAudioContext.onEnded(wx.hideNavigationBarLoading)
 
-      innerAudioContext.onError(wx.hideNavigationBarLoading);
+      // innerAudioContext.onError(wx.hideNavigationBarLoading);
     }
 
-    innerAudioContext.src = url;
-    innerAudioContext.seek(0);
-    innerAudioContext.play();
     wx.showNavigationBarLoading();
+    
+    playCount++;
+    let curPlayCount = playCount;  // 连续点击，只允许播放最后一次声音
+
+    wx.downloadFile({
+      url,
+      success: function (res) {
+        if (res.statusCode !== 200 || curPlayCount !== playCount) 
+          return;
+        innerAudioContext.src = res.tempFilePath;
+        innerAudioContext.seek(0);
+        innerAudioContext.play();
+      },
+      complete: function (res) {
+        wx.hideNavigationBarLoading();
+      }
+    });
   },
 
   onLongPress: function(e) {
