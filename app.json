@@ -11,5 +11,6 @@
     "navigationBarTitleText": "Dota2全英雄配音",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#353c46"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

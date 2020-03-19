@@ -6,7 +6,7 @@
 <block wx:if="{{tabNum>1}}">
   <view class="swiper-tab">
     <view class="swiper-tab-list {{current==0 ? 'on' : ''}}" style="width:{{100/tabNum}}%" data-current="0" bindtap="swichTab">Voices</view>
-    <view class="swiper-tab-list {{current==1 ? 'on' : ''}}" style="width:{{100/tabNum}}%" data-current="1" bindtap="swichTab">{{ soundName || "Bladeform Legacy"}}</view>
+    <view class="swiper-tab-list {{current==1 ? 'on' : ''}}" style="width:{{100/tabNum}}%" data-current="1" bindtap="swichTab">{{ soundName}}</view>
   </view>
 
   <swiper current="{{current}}" class='swiper' bindchange='bindchange' bindanimationfinish='bindanimationfinish'>

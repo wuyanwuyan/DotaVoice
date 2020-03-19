@@ -22,7 +22,7 @@ Page({
    */
   onLoad: function(options) {
     let hero = options.hero;
-    this.loadHero(`https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${hero}.json`);
+    this.loadHero(`https://dovahkiin.coding.net/p/tempData/d/tempData/git/raw/master/heros/${hero}.json`);
   },
 
   loadHero: function(url, index = 0) {
@@ -47,7 +47,7 @@ Page({
         heroInfos[index] = heroInfo;
         let tabNum = heroInfos[0] && heroInfos[0].arcana ? 2 : 1;
 
-        let soundName = (heroInfos[0] && heroInfos[0].soundName) || '';
+        let soundName = (heroInfos[0] && heroInfos[0].soundName) || heroInfos[0].arcana;
 
         this.setData({
           loadData,
@@ -119,7 +119,7 @@ Page({
     }
 
     let hero = encodeURIComponent(this.data.heroInfos[0].arcana);
-    this.loadHero(`https://coding.net/u/dovahkiin/p/tempData/git/raw/master/heros/${hero}.json`, 1);
+    this.loadHero(`https://dovahkiin.coding.net/p/tempData/d/tempData/git/raw/master/heros/${hero}.json`, 1);
   },
 
   /**
