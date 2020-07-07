@@ -7,21 +7,21 @@
   <view>
     <text class='section-title'>Strength-力量</text>
     <view>
-      <template is="hero" data="{{...item}}" wx:for="{{strengthHeros}}" wx:key="{{item.heroName}}" />
+      <template is="hero" data="{{...item}}" wx:for="{{strengthHeros}}" wx:key="heroName" />
     </view>
   </view>
 
   <view>
     <text class='section-title'>Agility-敏捷</text>
     <view>
-      <template is="hero" data="{{...item}}" wx:for="{{agilityHeros}}" wx:key="{{item.heroName}}" />
+      <template is="hero" data="{{...item}}" wx:for="{{agilityHeros}}" wx:key="heroName" />
     </view>
   </view>
 
   <view>
     <text class='section-title'>Intelligence-智力</text>
     <view>
-      <template is="hero" data="{{...item}}" wx:for="{{intelligenceHeros}}" wx:key="{{item.heroName}}" />
+      <template is="hero" data="{{...item}}" wx:for="{{intelligenceHeros}}" wx:key="heroName" />
     </view>
   </view>
 

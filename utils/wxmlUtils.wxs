@@ -1,8 +1,0 @@
-function getAvaterUrl(heroName){
-  var name = heroName.toLowerCase().replace(getRegExp('[\s\'_]','g'),"");
-  return "https://dovahkiin.coding.net/p/tempData/d/tempData/git/raw/master/avatar/" + encodeURIComponent(name) + ".png";
-}
-
-module.exports = {
-  getAvaterUrl: getAvaterUrl
-}

@@ -11,7 +11,7 @@
 
     <view class="banner-line banner-line-{{heroInfo.primaryAttribute}}"></view>
 
-    <view wx:for="{{renderData}}" wx:key="{{index}}">
+    <view wx:for="{{renderData}}" wx:key="index">
       <view wx:if="{{item.headTitle}}" class='head-title'>
         <text>{{item.headTitle}}</text>
       </view>
@@ -19,7 +19,7 @@
       <view wx:if="{{item.type === 'voice'}}" class="voice-item flex_center_v">
 
         <view class='voice-item-left flex1' hover-class="voice-item-hover" bind:tap='onTab' bind:longpress='onLongPress' data-item="{{item}}">
-          <image wx:if="{{item.imgs && item.imgs.length !== 0}}" class='small-avater' src="{{imgItem.img}}" wx:for="{{item.imgs}}" wx:key="{{imgIndex}}" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
+          <image wx:if="{{item.imgs && item.imgs.length !== 0}}" class='small-avater' src="{{imgItem.img}}" wx:for="{{item.imgs}}" wx:key="imgIndex" wx:for-index="imgIndex" wx:for-item="imgItem" mode="widthFix"></image>
 
           <text>{{item.mp3Text}}</text>
         </view>
