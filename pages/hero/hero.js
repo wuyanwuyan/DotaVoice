@@ -176,6 +176,15 @@ Page({
   playSound: function(url) {
     if (!innerAudioContext) {
       innerAudioContext = wx.createInnerAudioContext();
+      // ios下无法播放？？？
+      if (wx.setInnerAudioOption) {
+        wx.setInnerAudioOption({
+          obeyMuteSwitch: false
+        })
+      }else {
+        innerAudioContext.obeyMuteSwitch = false;
+      }
+      
       // innerAudioContext.autoplay = true;
 
       // innerAudioContext.onPlay(wx.hideNavigationBarLoading);
