@@ -206,9 +206,19 @@ Page({
       success: function (res) {
         if (res.statusCode !== 200 || curPlayCount !== playCount) 
           return;
-        innerAudioContext.src = res.tempFilePath;
-        innerAudioContext.seek(0);
-        innerAudioContext.play();
+
+          const sys = wx.getSystemInfoSync()
+          // console.log(sys.platform.toLowerCase() ,  'sys.platform')
+          if (sys.platform.toLowerCase() === 'ios') {
+            const audio = wx.getBackgroundAudioManager()
+            audio.title = '...'
+            audio.src = res.tempFilePath;
+            audio.play();
+          } else {
+            innerAudioContext.src = res.tempFilePath;
+            innerAudioContext.seek(0);
+            innerAudioContext.play();
+          }
       },
       complete: function (res) {
         wx.hideNavigationBarLoading();
