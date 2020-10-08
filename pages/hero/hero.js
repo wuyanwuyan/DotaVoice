@@ -22,7 +22,9 @@ Page({
    */
   onLoad: function(options) {
     let hero = options.hero;
-    this.loadHero(`https://dovahkiin.coding.net/p/tempData/d/tempData/git/raw/master/heros/${hero}.json`);
+    hero = decodeURIComponent(hero);
+    hero = decodeURIComponent(hero);
+    this.loadHero(`https://dovahkiin.coding.net/p/tempData/d/tempData/git/raw/master/heros/${encodeURIComponent(hero)}.json`);
   },
 
   loadHero: function(url, index = 0) {
